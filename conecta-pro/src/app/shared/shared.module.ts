@@ -4,12 +4,14 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { RoutingModule } from './routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
+import { AppNavItemComponent } from './sidebar/nav-item/nav-item.component';
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    MenuComponent
+    MenuComponent,
+    AppNavItemComponent
   ],
   imports: [
     CommonModule,

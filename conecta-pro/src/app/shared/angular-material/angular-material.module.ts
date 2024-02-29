@@ -19,6 +19,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -50,7 +51,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatRippleModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatListModule
   ]
 })
 export class AngularMaterialModule { }
