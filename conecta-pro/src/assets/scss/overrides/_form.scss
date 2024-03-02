@@ -1,6 +1,7 @@
 // for radius
 
 .mdc-text-field--outlined {
+
   .mdc-notched-outline__leading,
   .mdc-notched-outline__trailing,
   .mdc-notched-outline__notch {
@@ -18,7 +19,7 @@
   }
 }
 
-.mdc-form-field > label {
+.mdc-form-field>label {
   font-size: 14px;
 }
 
@@ -26,4 +27,9 @@
   .mat-mdc-form-field-subscript-wrapper {
     display: none;
   }
+}
+
+.mat-checkbox-inner-container {
+  width: 18px !important;
+  height: 18px !important;
 }

@@ -12,10 +12,10 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent implements OnInit {
 
   @ViewChild('leftsidenav')
-  public sidenav: MatSidenav;
+  public sidenav: MatSidenav | any;
 
   //get options from service
   private layoutChangesSubscription = Subscription.EMPTY;
@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit{
     this.htmlElement = document.querySelector('html')!;
     this.layoutChangesSubscription = this.breakpointObserver
       .observe([MOBILE_VIEW, TABLET_VIEW, MONITOR_VIEW])
-      .subscribe((state:any) => {
+      .subscribe((state) => {
         // SidenavOpened must be reset true when layout changes
 
         this.isMobileScreen = state.breakpoints[MOBILE_VIEW];
@@ -41,7 +41,7 @@ export class MenuComponent implements OnInit{
       });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnDestroy() {
     this.layoutChangesSubscription.unsubscribe();

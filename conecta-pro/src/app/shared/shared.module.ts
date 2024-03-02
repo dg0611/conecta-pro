@@ -6,6 +6,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppNavItemComponent } from './sidebar/nav-item/nav-item.component';
 import { HeaderComponent } from './header/header.component';
+import { TablerIconsModule } from 'angular-tabler-icons';
+import { FormsComponent } from './forms/forms.component';
+
 
 
 @NgModule({
@@ -13,13 +16,14 @@ import { HeaderComponent } from './header/header.component';
     SidebarComponent,
     MenuComponent,
     AppNavItemComponent,
-    HeaderComponent
-
+    HeaderComponent,
+    FormsComponent
   ],
   imports: [
     CommonModule,
     RoutingModule,
     AngularMaterialModule,
+    TablerIconsModule
     // RoutingModule,
   ],
   exports: [
