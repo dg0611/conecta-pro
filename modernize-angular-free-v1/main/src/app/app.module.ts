@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import * as TablerIcons from 'angular-tabler-icons/icons';
 
+
 //Import all material modules
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,7 +43,7 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    TablerIconsModule.pick(TablerIcons),
+
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

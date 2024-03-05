@@ -27,6 +27,7 @@ import { FormsComponent } from './forms/forms.component';
     // RoutingModule,
   ],
   exports: [
+    MenuComponent,
   ]
 })
 export class SharedModule { }

@@ -23,7 +23,7 @@
   <!-- --------------------------------------------------------------- -->
   <!-- profile Dropdown -->
   <!-- --------------------------------------------------------------- -->
-  <a
+  <!-- <a
     mat-flat-button
     color="primary"
     href="https://adminmart.com/"
@@ -31,17 +31,19 @@
     class="d-flex justify-content-center"
   >
     Download Free
-  </a>
+  </a> -->
   <button
     mat-icon-button
     [matMenuTriggerFor]="profilemenu"
     aria-label="Notifications"
   >
-    <img
+    <!-- <img
       src="/assets/images/profile/user-1.jpg"
       class="rounded-circle object-cover"
       width="35"
-    />
+    /> -->
+    <i-tabler name="user" class="rounded-circle object-cover"
+    width="35"></i-tabler>
   </button>
   <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
     <button mat-menu-item>
