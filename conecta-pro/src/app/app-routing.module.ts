@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./shared/shared.module').then(p => p.SharedModule)
+    loadChildren: () => import('./pages/home/home.module').then(p => p.HomeModule)
   },
   {
     path: 'eventuar',
@@ -30,7 +30,9 @@ const routes: Routes = [
   {
     path:'valor-receber',
     loadChildren: () => import('./pages/valor-receber/valor-receber.module').then(p => p.ValorReceberModule)
-  }
+  },
+
+
 ];
 
 @NgModule({

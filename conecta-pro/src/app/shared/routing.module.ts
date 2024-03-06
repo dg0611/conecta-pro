@@ -9,6 +9,7 @@ import { AgendaComponent } from '../pages/agenda/agenda.component';
 import { AvaliacoesComponent } from '../pages/avaliacoes/avaliacoes.component';
 import { RelatorioComponent } from '../pages/relatorio/relatorio.component';
 import { ValorReceberComponent } from '../pages/valor-receber/valor-receber.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 //Components
 
@@ -19,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: MenuComponent
+    component: HomeComponent
   },
   {
     path: 'registro',
