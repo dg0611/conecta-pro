@@ -1,71 +1,120 @@
-<mat-sidenav-container class="mainWrapper blue_theme  light-theme" autosize autoFocus dir="ltr">
+<mat-sidenav-container
+  class="mainWrapper blue_theme light-theme"
+  autosize
+  autoFocus
+  dir="ltr"
+>
+  <!-- ============================================================== -->
+  <!-- Vertical Sidebar -->
+  <!-- ============================================================== -->
+
+  <mat-sidenav
+    #leftsidenav
+    [mode]="isOver ? 'push' : 'side'"
+    [opened]="!isOver"
+    (openedChange)="onSidenavOpenedChange($event)"
+    (closedStart)="onSidenavClosedStart()"
+    class="sidebarNav"
+  >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <!-- ============================================================== -->
+  <!-- Main Content -->
+  <!-- ============================================================== -->
+  <mat-sidenav-content class="contentWrapper">
     <!-- ============================================================== -->
-    <!-- Vertical Sidebar -->
+    <!-- VerticalHeader -->
     <!-- ============================================================== -->
 
-    <mat-sidenav #leftsidenav [mode]="isOver ? 'push' : 'side'" [opened]="!isOver"
-        (openedChange)="onSidenavOpenedChange($event)" (closedStart)="onSidenavClosedStart()" class="sidebarNav">
-        <app-sidebar></app-sidebar>
-    </mat-sidenav>
-    <!-- ============================================================== -->
-    <!-- Main Content -->
-    <!-- ============================================================== -->
-    <mat-sidenav-content class="contentWrapper">
-        <!-- ============================================================== -->
-        <!-- VerticalHeader -->
-        <!-- ============================================================== -->
+    <app-header
+      [showToggle]="!isOver"
+      (toggleCollapsed)="toggleCollapsed()"
+      (toggleMobileNav)="sidenav.toggle()"
+    ></app-header>
 
-        <app-header [showToggle]="!isOver" (toggleCollapsed)="toggleCollapsed()"
-            (toggleMobileNav)="sidenav.toggle()"></app-header>
-
-        <main class="pageWrapper">
-
-            <!-- --------------------------------------------------------------------------- -->
-            <!-- Monthly Earnings -->
-            <!-- --------------------------------------------------------------------------- -->
-            <!-- <div style="height: 800px; width: 70%; background-color: red;">
-                <div>
-                    <div class="col-lg-12 col-sm-6">
-                        <mat-card class="cardWithShadow">
-                            <mat-card-header class="d-flex align-items-center p-x-24">
-                                <mat-card-title>Monthly Earnings</mat-card-title>
-                                <div class="m-l-auto">
-                                    <button mat-fab color="accent" class="shadow-none icon-48">
-                                        <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
-                                    </button>
-                                </div>
-                            </mat-card-header>
-                            <mat-card-content class="m-b-32 p-x-24">
-                                <h4 class="mat-headline-5">$6,820</h4>
-                                <div class="d-flex align-items-center m-t-16">
-                                    <button mat-mini-fab class="bg-light-error text-error shadow-none icon-27">
-                                        <i-tabler name="arrow-down-right" class="icon-20"></i-tabler>
-                                    </button>
-                                    <div class="mat-body-1 f-w-600 m-l-12">+9%</div>
-                                    <div class="mat-body-1 m-l-4">last year</div>
-                                </div>
-                            </mat-card-content>
-                            <apx-chart [series]="monthlyChart.series" [dataLabels]="monthlyChart.dataLabels"
-                                [chart]="monthlyChart.chart" [legend]="monthlyChart.legend"
-                                [colors]="monthlyChart.colors" [stroke]="monthlyChart.stroke"
-                                [tooltip]="monthlyChart.tooltip" [plotOptions]="monthlyChart.plotOptions"
-                                [responsive]="monthlyChart.responsive"></apx-chart>
-                        </mat-card>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <!-- ============================================================== -->
-            <!-- Outlet -->
-            <!-- ============================================================== -->
-
-
-            <div id="chart">
-                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
-                    [responsive]="chartOptions.responsive"></apx-chart>
+    <main class="pageWrapper">
+      <!-- --------------------------------------------------------------------------- -->
+      <!-- Monthly Earnings -->
+      <!-- --------------------------------------------------------------------------- -->
+        <mat-card class="cardWithShadow">
+          <mat-card-header class="d-flex align-items-center p-x-24">
+            <mat-card-title>Ganhos Mensais</mat-card-title>
+            <div class="m-l-auto">
+              <button mat-fab color="accent" class="shadow-none icon-48">
+                <i-tabler
+                  name="currency-dollar"
+                  class="text-white d-flex"
+                ></i-tabler>
+              </button>
             </div>
+          </mat-card-header>
+          <mat-card-content class="m-b-32 p-x-24">
+            <h4 class="mat-headline-5">R$4.990</h4>
+            <div class="d-flex align-items-center m-t-16">
+              <button
+                mat-mini-fab
+                class="bg-light-error text-error shadow-none icon-27"
+              >
+                <i-tabler name="arrow-down-right" class="icon-20"></i-tabler>
+              </button>
+              <div class="mat-body-1 f-w-600 m-l-12">+90%</div>
+              <div class="mat-body-1 m-l-4">Ultimo mêsr</div>
+            </div>
+          </mat-card-content>
+          <apx-chart
+            [series]="monthlyChart.series"
+            [dataLabels]="monthlyChart.dataLabels"
+            [chart]="monthlyChart.chart"
+            [legend]="monthlyChart.legend"
+            [colors]="monthlyChart.colors"
+            [stroke]="monthlyChart.stroke"
+            [tooltip]="monthlyChart.tooltip"
+            [plotOptions]="monthlyChart.plotOptions"
+            [responsive]="monthlyChart.responsive"
+          ></apx-chart>
+        </mat-card>
 
-        </main>
-    </mat-sidenav-content>
+      <!-- ============================================================== -->
+      <!-- Outlet -->
+      <!-- ============================================================== -->
+        <mat-card class="cardWithShadow col-lg-6 col-md-12 col-sm-12"style="min-width:420px" style="display: inline-block; height:320px;">
+          <mat-card-header class="d-flex align-items-center p-x-12">
+            <mat-card-title>Escolas</mat-card-title>
+            <div class="m-l-auto">
+              <button mat-fab color="accent" class="shadow-none icon-48">
+                <i-tabler
+                  name="building-estate"
+                  class="text-white d-flex"
+                ></i-tabler>
+              </button>
+            </div>
+          </mat-card-header>
+
+          <div id="chart" class="col-lg-6 col-sm-6">
+            <apx-chart
+              style="padding-bottom: 12px"
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [labels]="chartOptions.labels"
+              [responsive]="chartOptions.responsive"
+            ></apx-chart>
+          </div>
+        </mat-card>
+
+          <mat-card class="cardWithShadow cardWithShadow col-lg-6 col-md-12 col-sm-12" style="display: inline-block; height:320px;">
+            <mat-card-header class="d-flex align-items-center p-x-12">
+              <mat-card-title>Lembrete de Hoje</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct
+                spitz breeds of dog from Japan. A small, agile dog that copes
+                very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+          </mat-card>
+    </main>
+  </mat-sidenav-content>
 </mat-sidenav-container>

@@ -3,18 +3,35 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
+export interface monthlyChart {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
+  stroke: ApexStroke;
+  legend: ApexLegend;
+  responsive: ApexResponsive;
+}
 
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
   ApexChart,
-  ChartComponent
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexDataLabels,
+  ApexLegend,
+  ApexPlotOptions,
+  ApexStroke,
+  ApexTooltip
 } from "ng-apexcharts";
 
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
 const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
 const MONITOR_VIEW = 'screen and (min-width: 1024px)';
+
 
 
 export type ChartOptions = {
@@ -35,6 +52,8 @@ export class HomeComponent {
 
   @ViewChild("chart") chart: ChartComponent | any = null;
   public chartOptions: Partial<ChartOptions> | any;
+  public monthlyChart!: Partial<monthlyChart> | any;
+
 
 
   @ViewChild('leftsidenav')
@@ -68,7 +87,18 @@ export class HomeComponent {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+              width: 300
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        },
+        {
+          breakpoint: 350,
+          options: {
+            chart: {
+              width: 275
             },
             legend: {
               position: "bottom"
@@ -76,6 +106,48 @@ export class HomeComponent {
           }
         }
       ]
+    };
+
+    this.monthlyChart = {
+      series: [
+        {
+          name: '',
+          color: '#49BEFF',
+          data: [25, 66, 20, 40, 12, 58, 20],
+        },
+      ],
+
+      chart: {
+        type: 'area',
+        fontFamily: "'Plus Jakarta Sans', sans-serif;",
+        foreColor: '#adb0bb',
+        toolbar: {
+          show: false,
+        },
+        height: 60,
+        sparkline: {
+          enabled: true,
+        },
+        group: 'sparklines',
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 2,
+      },
+      fill: {
+        colors: ['#E8F7FF'],
+        type: 'solid',
+        opacity: 0.05,
+      },
+      markers: {
+        size: 0,
+      },
+      tooltip: {
+        theme: 'dark',
+        x: {
+          show: false,
+        },
+      },
     };
 
     this.htmlElement = document.querySelector('html')!;
