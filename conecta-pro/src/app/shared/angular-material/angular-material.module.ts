@@ -15,12 +15,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatListModule} from '@angular/material/list';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -52,7 +52,11 @@ import {MatListModule} from '@angular/material/list';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class AngularMaterialModule { }

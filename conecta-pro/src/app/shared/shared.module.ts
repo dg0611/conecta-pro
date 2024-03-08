@@ -8,6 +8,7 @@ import { AppNavItemComponent } from './sidebar/nav-item/nav-item.component';
 import { HeaderComponent } from './header/header.component';
 import { TablerIconComponent, TablerIconsModule } from 'angular-tabler-icons';
 import { FormsComponent } from './forms/forms.component';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -17,7 +18,8 @@ import { FormsComponent } from './forms/forms.component';
     MenuComponent,
     AppNavItemComponent,
     HeaderComponent,
-    FormsComponent
+    FormsComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { FormsComponent } from './forms/forms.component';
     FormsComponent,
     HeaderComponent,
     MenuComponent,
-    TablerIconComponent
+    TablerIconComponent,
+    ProductComponent
   ]
 })
 export class SharedModule { }
