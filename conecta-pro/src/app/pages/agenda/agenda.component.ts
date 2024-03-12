@@ -14,9 +14,17 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
   styleUrls: ['./agenda.component.scss']
 })
 export class AgendaComponent {
-
+  selected: Date | null= null;
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
+
+  selectedDates: Date[] = [new Date('Mon Mar 04 2024 00:00:00 GMT-0300'), new Date('Tue Mar 12 2024 00:00:00 GMT-0300')];
+
+  onDateSelected(selectedDate: Date) {
+    // Adicione a data selecionada ao array
+    this.selectedDates.push(selectedDate);
+    console.log(selectedDate)
+  }
 
   //get options from service
   private layoutChangesSubscription = Subscription.EMPTY;

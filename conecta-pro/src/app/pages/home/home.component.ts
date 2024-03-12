@@ -76,12 +76,12 @@ export class HomeComponent {
 
 
     this.chartOptions = {
-      series: [44, 55, 13, 43, 22],
+      series: [25, 25, 25, 25],
       chart: {
         width: 380,
         type: "donut"
       },
-      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      labels: ["EPG Raquel de quiroz", "EPG Álvaro Mesquita", "EPG Ofélia", "EPG Céu São Domingos"],
       responsive: [
         {
           breakpoint: 480,
