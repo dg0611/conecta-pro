@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AgendaComponent } from './agenda.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -15,6 +16,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
     CommonModule,
     SharedModule,
     AngularMaterialModule,
+    FullCalendarModule
 
   ]
 })

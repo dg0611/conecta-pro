@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ValorReceberComponent } from './valor-receber.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { TesteModule } from 'src/app/teste/teste.module';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    TesteModule
   ]
 })
 export class ValorReceberModule { }

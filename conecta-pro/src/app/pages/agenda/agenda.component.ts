@@ -1,7 +1,12 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, ViewChild } from '@angular/core';
+import {  ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
 
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
@@ -14,6 +19,31 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
   styleUrls: ['./agenda.component.scss']
 })
 export class AgendaComponent {
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    plugins: [dayGridPlugin, interactionPlugin],
+    dateClick: (arg) => this.handleDateClick(arg),
+    events: [
+      { title: 'event 1', date: '2019-04-01' },
+      { title: 'event 2', date: '2019-04-02' }
+    ]
+  };
+
+  handleDateClick(arg:any) {
+    alert('date click! ' + arg.dateStr)
+  }
+
+
+
+
+
+
+
+
+
+
+
   selected: Date | null= null;
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
