@@ -20,6 +20,7 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
 })
 export class AgendaComponent {
 
+  //calendario
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
@@ -33,16 +34,7 @@ export class AgendaComponent {
   handleDateClick(arg:any) {
     alert('date click! ' + arg.dateStr)
   }
-
-
-
-
-
-
-
-
-
-
+  //------------------------------------
 
   selected: Date | null= null;
   @ViewChild('leftsidenav')

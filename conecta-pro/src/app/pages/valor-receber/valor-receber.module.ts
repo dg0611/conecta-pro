@@ -4,6 +4,8 @@ import { ValorReceberComponent } from './valor-receber.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { TesteModule } from 'src/app/teste/teste.module';
+import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -15,7 +17,10 @@ import { TesteModule } from 'src/app/teste/teste.module';
     CommonModule,
     SharedModule,
     RouterModule,
-    TesteModule
+    TesteModule,
+    AngularMaterialModule,
+    MatListModule
+
   ]
 })
 export class ValorReceberModule { }
