@@ -1,1 +1,92 @@
-<app-menu></app-menu>
+<mat-sidenav-container class="mainWrapper blue_theme light-theme" autosize autoFocus dir="ltr">
+    <mat-sidenav #leftsidenav [mode]="isOver ? 'over' : 'side'" [opened]="!isOver"
+        (openedChange)="onSidenavOpenedChange($event)" (closedStart)="onSidenavClosedStart()" class="sidebarNav">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="contentWrapper">
+        <app-header [showToggle]="!isOver" (toggleCollapsed)="toggleCollapsed()"
+            (toggleMobileNav)="sidenav.toggle()"></app-header>
+
+        <main class="pageWrapper">
+
+            <div class="col-lg-12" style="display: flex; flex-wrap: wrap; margin: 0; padding: 0; gap: 24px;">
+
+                <mat-card class="cardWithShadow col-lg-6 col-md-12 col-sm-12"
+                    style=" display: inline-block; margin-bottom: 0;height: 360px; padding: 0;">
+                    <mat-card-content style="padding: 0;">
+                        <div style="width: 100%; padding: 12px; background-color: #5d87ff;">
+                            <h3>Grade de Pontuação</h3>
+                        </div>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+                        <div style="text-align: center; height: 100%;">
+                            <h4>Rank <mat-icon style="color: #5d87ff;">star</mat-icon></h4>
+                            <Span style=" font-size: 40px;"> A+</Span>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="cardWithShadow col-md-12 col-sm-12"
+                    style="display: inline-block; flex:1; height: 360px; padding: 0;">
+                    <mat-card-content style="padding: 0;">
+                        <div style="width: 100%; padding: 12px; background-color: #5d87ff;">
+                            <h3>Avaliação Média</h3>
+                        </div>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+                        <div style="text-align: center; height: 100%;">
+                            <h4>Nota</h4>
+                            <Span style="font-size: 40px;">4.7</Span>
+                        </div>
+
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <mat-card class="cardWithShadow" style="padding: 0;">
+                <mat-card-content style="padding: 0;">
+                    <div style="width: 100%; padding: 12px; background-color: #5d87ff;">
+                        <h3>Estátisticas Gerais</h3>
+                    </div>
+                    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+
+                    <div>
+                        <ul>
+                            <li>
+                                <div class="espec-geral">
+                                    <span>Total de escolas trabalhadas</span>
+                                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                                    <span>4</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="espec-geral">
+                                    <span>Total de horas trabalhadas (Estimado)</span>
+                                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                                    <span>4</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="espec-geral">
+                                    <span>Total de ganhos (Estimado)</span>
+                                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                                    <span>4</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="espec-geral">
+                                    <span>Notas Recebidas</span>
+                                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                                    <span>4</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

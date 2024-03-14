@@ -1,0 +1,40 @@
+:host {
+    mat-card mat-card-content {
+        height: 100%;
+
+        h3 {
+
+            color: white;
+            font-family: Plus Jakarta Sans;
+        }
+
+        span {
+            margin: 0 20px;
+        }
+
+        ul {
+            margin: 3% 5%;
+            padding: 0;
+            list-style: none;
+
+            display: flex;
+            gap: 12px;
+            flex-direction: column;
+
+            li {
+                span {
+                    width: auto;
+                    text-wrap: nowrap;
+                }
+            }
+        }
+    }
+
+
+
+    .espec-geral {
+        display: flex;
+        justify-content: center;
+
+    }
+}
