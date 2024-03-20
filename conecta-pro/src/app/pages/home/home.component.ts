@@ -50,6 +50,37 @@ export type ChartOptions = {
 })
 export class HomeComponent {
 
+texto = window.document.getElementById("#texto");
+
+
+  hiddens = true;
+
+  listaItens: string[] = ['Levar livro para leitura',
+  'Verificar qual sala estarei na próxima semana',
+  'Atualizar relatório de alunos',
+  'Verificar com a direção quais os dias de parque'];
+
+  addLembrete(){
+    this.listaItens.push()
+    this.hiddens = false;
+    console.log(this.texto)
+  }
+
+  excluirLembrete(){
+    this.listaItens.pop();
+    console.log("removido")
+  }
+
+
+
+
+
+
+
+
+
+
+
   @ViewChild("chart") chart: ChartComponent | any = null;
   public chartOptions: Partial<ChartOptions> | any;
   public monthlyChart!: Partial<monthlyChart> | any;

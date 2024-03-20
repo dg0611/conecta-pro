@@ -21,35 +21,34 @@ const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
 const MONITOR_VIEW = 'screen and (min-width: 1024px)';
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
+
 ];
 const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
+  'EPG Raquel de quiroz',
+  'EPG Ofélia',
+  'EPG Céu São Domingos',
+  'EPG Barão de Ramalho',
+  'EPG Monsenhor Passalaqua',
+  'EPG Francisco Antunes Filho',
+  'EPG Gonzaguinha',
+  'EPG Pedrinho e Narizinho A ',
+  'EPG ALFREDO VOLPI',
+  'EPG ALMIR NOGUEIRA',
+  'EPG ALVARES DE AZEVEDO',
+  'EPG ALVARO MESQUITA',
+  'EPG AMADEU PEREIRA LIMA',
+  'EPG AMADOR BUENO',
+  'EPG AMELIA DUARTE DA SILVA',
+  'EPG ANISIO TEIXEIRA',
+  'EPG ANITA MALFATTI',
+  'EPG ANSELMO DUARTE'
+
+
+
+
+
+
+
 ];
 
 @Component({
@@ -59,7 +58,7 @@ const NAMES: string[] = [
 
 })
 export class EventuarComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = [ 'name', 'progress'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any = 25;
@@ -78,7 +77,7 @@ export class EventuarComponent implements AfterViewInit {
         this.isContentWidthFixed = state.breakpoints[MONITOR_VIEW];
       });
     // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    const users = Array.from({length: 60}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);

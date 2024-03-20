@@ -24,7 +24,7 @@ export class ValorReceberComponent {
   displayedColumns: string[] = ['item', 'cost'];
   transactions: Transaction[] = [
     {item: 'Março', cost: 840.00},
-    {item: 'Fevereiro', cost: 3.200},
+    {item: 'Fevereiro', cost: 3200},
     {item: 'Janeiro', cost: 3400},
     {item: 'Dezembro', cost: 3600},
     {item: 'Novembro', cost: 2900},
