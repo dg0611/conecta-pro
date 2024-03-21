@@ -15,6 +15,10 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
 })
 export class RelatorioComponent {
 
+
+
+
+
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
 
