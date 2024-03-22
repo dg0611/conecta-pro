@@ -2,10 +2,12 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import jsPDF from 'jspdf';
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
 const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
 const MONITOR_VIEW = 'screen and (min-width: 1024px)';
+
 
 
 @Component({
@@ -33,6 +35,8 @@ export class RelatorioComponent {
     return this.isMobileScreen;
   }
 
+
+
   constructor(private breakpointObserver: BreakpointObserver) {
     this.htmlElement = document.querySelector('html')!;
     this.layoutChangesSubscription = this.breakpointObserver
@@ -45,6 +49,8 @@ export class RelatorioComponent {
         this.isContentWidthFixed = state.breakpoints[MONITOR_VIEW];
       });
   }
+
+
 
   ngOnInit(): void { }
 

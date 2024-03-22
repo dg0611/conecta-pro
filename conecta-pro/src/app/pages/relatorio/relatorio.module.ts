@@ -15,7 +15,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
     CommonModule,
     SharedModule,
     RouterModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ]
 })
 export class RelatorioModule { }

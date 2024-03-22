@@ -2,9 +2,10 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
-
+import jsPDF from 'jspdf';
 import {CurrencyPipe} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
+import { PeriodicElement } from 'src/app/shared/product/product.component';
 
 
 interface Transaction {
@@ -77,5 +78,31 @@ export class ValorReceberComponent {
 
   onSidenavOpenedChange(isOpened: boolean) {
     this.isCollapsedWidthFixed = !this.isOver;
+  }
+
+
+  //EXPORTAR PDF
+  pdfExport() {
+    this.exportPDF(this.transactions);
+  }
+
+
+  private exportPDF(transactions: Transaction[]) {
+    const doc = new jsPDF();
+    doc.text('ConectaPRÔ',90,10);
+    let yPos = 40;
+
+    doc.text('Relatório de Informações de valores a receber/recebidos',40,20)
+
+    transactions.forEach(element => {
+      doc.text('Mês', 10, 30);
+        doc.text(element.item, 10,yPos);
+        doc.text('Total', 80, 30);
+        doc.text(element.cost.toString(),80,yPos);
+
+
+        yPos += 8; // Ajusta a posição vertical para o próximo item
+    });
+    doc.save('relatorio_valor_receber.pdf');
   }
 }
