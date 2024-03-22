@@ -83,28 +83,12 @@
 
               </ul>
               <div style="display: flex;">
-                <button class="botao" mat-raised-button color="primary" (click)="addLembrete()">Adicionar</button>
+                <button class="botao" mat-raised-button color="primary" (click)="openDialog('0ms', '0ms')">Adicionar</button>
                 <button mat-flat-button color="accent" class="botao excluir">Editar</button>
                 <button class="botao excluir"  mat-raised-button color="warn" (click)="excluirLembrete()">Excluir</button>
 
-
               </div >
 
-              <div [hidden]="hiddens" style="margin-top: 15px;">
-
-                <mat-card style="height: 250px; margin-bottom: -30%;" >
-                  <mat-card-header>
-                    <mat-card-title>Digite seu Lembrete</mat-card-title>
-                    <mat-card-subtitle></mat-card-subtitle>
-                  </mat-card-header>
-                  <mat-card-actions>
-                    <input style="width: 40%; height: 50px; border-radius: 15px;" type="text" name="" id="texto">
-                    <button mat-button>ADICIONAR</button>
-                    <button mat-button>REMOVER</button>
-                  </mat-card-actions>
-                </mat-card>
-
-              </div>
 
 
 

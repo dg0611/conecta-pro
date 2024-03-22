@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { TablerIconComponent, TablerIconsModule } from 'angular-tabler-icons';
 import { FormsComponent } from './forms/forms.component';
 import { ProductComponent } from './product/product.component';
+import { DialogComponent } from './dialogs/dialog.component';
 
 
 
@@ -19,7 +20,8 @@ import { ProductComponent } from './product/product.component';
     AppNavItemComponent,
     HeaderComponent,
     FormsComponent,
-    ProductComponent
+    ProductComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { ProductComponent } from './product/product.component';
     HeaderComponent,
     MenuComponent,
     TablerIconComponent,
-    ProductComponent
+    ProductComponent,
+    DialogComponent
   ]
 })
 export class SharedModule { }

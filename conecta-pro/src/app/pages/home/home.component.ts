@@ -26,6 +26,8 @@ import {
   ApexStroke,
   ApexTooltip
 } from "ng-apexcharts";
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/dialogs/dialog.component';
 
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
@@ -49,6 +51,16 @@ export type ChartOptions = {
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+// Dialog lembrete
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
 
 texto = window.document.getElementById("#texto");
 
@@ -102,7 +114,7 @@ texto = window.document.getElementById("#texto");
     return this.isMobileScreen;
   }
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
 
 
 
