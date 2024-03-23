@@ -10,6 +10,8 @@ import { TablerIconComponent, TablerIconsModule } from 'angular-tabler-icons';
 import { FormsComponent } from './forms/forms.component';
 import { ProductComponent } from './product/product.component';
 import { DialogComponent } from './dialogs/dialog.component';
+import { DialogDetalhamentoEventuarComponent } from './dialogs/dialog-detalhamento-eventuar.component';
+
 
 
 
@@ -21,7 +23,8 @@ import { DialogComponent } from './dialogs/dialog.component';
     HeaderComponent,
     FormsComponent,
     ProductComponent,
-    DialogComponent
+    DialogComponent,
+    DialogDetalhamentoEventuarComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { DialogComponent } from './dialogs/dialog.component';
     MenuComponent,
     TablerIconComponent,
     ProductComponent,
-    DialogComponent
+    DialogComponent,
+    DialogDetalhamentoEventuarComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,28 @@
+<section
+    style="padding: 40px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+    <h4 style="text-align: center; font-size: 30px; font-weight: 600px;"><i-tabler name="school"></i-tabler>Dimal Alms
+    </h4>
+
+    <mat-dialog-content style="height: auto; width: 100%; text-align: center;">
+
+        <h2 mat-dialog-title>Dados da Escola</h2>
+        <p><strong>Nome:</strong> {{ data.name }}</p>
+        <p><strong>Diretor:</strong> {{ data.numberOfStudents }}</p>
+        <p><strong>Endereço:</strong> {{ data.address }}</p>
+        <p><strong>Número de Alunos:</strong> {{ data.numberOfStudents }}</p>
+        <p><strong>Telefone:</strong> {{ data.numberOfStudents }}</p>
+        <p><strong>Whatsapp:</strong> {{ data.numberOfStudents }}</p>
+        <p><strong>Email:</strong> {{ data.numberOfStudents }}</p>
+        <p><strong>Diretor:</strong> {{ data.numberOfStudents }}</p>
+
+
+
+        <!-- Adicione mais campos conforme necessário -->
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="onNoClick()">Salvar</button>
+        <button mat-raised-button color="warn" [mat-dialog-close] cdkFocusInitial>Voltar</button>
+    </mat-dialog-actions>
+
+</section>

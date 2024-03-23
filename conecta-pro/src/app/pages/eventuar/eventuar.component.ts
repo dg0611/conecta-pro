@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import {AfterViewInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AfterViewInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
+import { DialogDetalhamentoEventuarComponent } from 'src/app/shared/dialogs/dialog-detalhamento-eventuar.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface UserData {
   id: string;
@@ -44,11 +46,6 @@ const NAMES: string[] = [
   'EPG ANSELMO DUARTE'
 
 
-
-
-
-
-
 ];
 
 @Component({
@@ -58,13 +55,13 @@ const NAMES: string[] = [
 
 })
 export class EventuarComponent implements AfterViewInit {
-  displayedColumns: string[] = [ 'name', 'progress'];
+  displayedColumns: string[] = ['name', 'progress', 'actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any = 25;
-  @ViewChild(MatSort) sort: MatSort | any ;
+  @ViewChild(MatSort) sort: MatSort | any;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
 
     this.htmlElement = document.querySelector('html')!;
     this.layoutChangesSubscription = this.breakpointObserver
@@ -77,7 +74,7 @@ export class EventuarComponent implements AfterViewInit {
         this.isContentWidthFixed = state.breakpoints[MONITOR_VIEW];
       });
     // Create 100 users
-    const users = Array.from({length: 60}, (_, k) => createNewUser(k + 1));
+    const users = Array.from({ length: 60 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
@@ -86,6 +83,18 @@ export class EventuarComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  openDialog(dados: any): void {
+    const dialogRef = this.dialog.open(DialogDetalhamentoEventuarComponent, {
+      width: '30%',
+      height: '60%',
+      data: { dados },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   applyFilter(event: Event) {
