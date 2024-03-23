@@ -3,10 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 import jsPDF from 'jspdf';
-import {CurrencyPipe} from '@angular/common';
-import {MatTableModule} from '@angular/material/table';
+import { CurrencyPipe } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
 import { PeriodicElement } from 'src/app/shared/product/product.component';
-
 
 interface Transaction {
   item: string;
@@ -21,18 +20,19 @@ const MONITOR_VIEW = 'screen and (min-width: 1024px)';
   styleUrls: ['./valor-receber.component.scss'],
 })
 export class ValorReceberComponent {
-
   displayedColumns: string[] = ['item', 'cost'];
   transactions: Transaction[] = [
-    {item: 'Março', cost: 840.00},
-    {item: 'Fevereiro', cost: 3200},
-    {item: 'Janeiro', cost: 3400},
-    {item: 'Dezembro', cost: 3600},
-    {item: 'Novembro', cost: 2900},
-    {item: 'Outubro', cost: 3000},
+    { item: 'Março', cost: 840.0 },
+    { item: 'Fevereiro', cost: 3200 },
+    { item: 'Janeiro', cost: 3400 },
+    { item: 'Dezembro', cost: 3600 },
+    { item: 'Novembro', cost: 2900 },
+    { item: 'Outubro', cost: 3000 },
   ];
   getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+    return this.transactions
+      .map((t) => t.cost)
+      .reduce((acc, value) => acc + value, 0);
   }
 
   selected: Date | null = null;
@@ -80,29 +80,27 @@ export class ValorReceberComponent {
     this.isCollapsedWidthFixed = !this.isOver;
   }
 
-
   //EXPORTAR PDF
   pdfExport() {
     this.exportPDF(this.transactions);
   }
 
-
   private exportPDF(transactions: Transaction[]) {
     const doc = new jsPDF();
-    doc.text('ConectaPRÔ',90,10);
+    doc.text('ConectaPRÔ', 90, 10);
     let yPos = 40;
 
-    doc.text('Relatório de Informações de valores a receber/recebidos',40,20)
+    doc.text('Relatório de Informações de valores a receber/recebidos', 40, 20);
 
-    transactions.forEach(element => {
+    transactions.forEach((element) => {
       doc.text('Mês', 10, 30);
-        doc.text(element.item, 10,yPos);
-        doc.text('Total', 80, 30);
-        doc.text(element.cost.toString(),80,yPos);
+      doc.text(element.item, 10, yPos);
+      doc.text('Total', 80, 30);
+      doc.text(element.cost.toString(), 80, yPos);
 
-
-        yPos += 8; // Ajusta a posição vertical para o próximo item
+      yPos += 8; // Ajusta a posição vertical para o próximo item
     });
     doc.save('relatorio_valor_receber.pdf');
-  }
+  }//FIM EXPORTAR PDF
+
 }

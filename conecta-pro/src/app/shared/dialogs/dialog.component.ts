@@ -18,4 +18,10 @@ export class DialogComponent {
     });
   }
 
+
+  onNoClick(nota:any): void {
+
+    this.dialogRef.close(nota);
+
+  }
 }

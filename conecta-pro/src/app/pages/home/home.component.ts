@@ -24,17 +24,14 @@ import {
   ApexLegend,
   ApexPlotOptions,
   ApexStroke,
-  ApexTooltip
-} from "ng-apexcharts";
+  ApexTooltip,
+} from 'ng-apexcharts';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/dialogs/dialog.component';
-
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
 const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
 const MONITOR_VIEW = 'screen and (min-width: 1024px)';
-
-
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -43,65 +40,59 @@ export type ChartOptions = {
   labels: any;
 };
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  // Dialog lembrete
+  openDialog(
 
-// Dialog lembrete
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogComponent, {
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    const dialogRef = this.dialog.open(DialogComponent,
+     {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.listaItens.push(result);
+    });
   }
 
-
-texto = window.document.getElementById("#texto");
-
+  texto = window.document.getElementById('#texto');
 
   hiddens = true;
 
-  listaItens: string[] = ['Levar livro para leitura',
-  'Verificar qual sala estarei na próxima semana',
-  'Atualizar relatório de alunos',
-  'Verificar com a direção quais os dias de parque'];
+  listaItens: string[] = [
 
-  addLembrete(){
-    this.listaItens.push()
+    'Levar livro para leitura',
+    'Verificar qual sala estarei na próxima semana',
+    'Atualizar relatório de alunos',
+    'Verificar com a direção quais os dias de parque',
+  ];
+
+  addLembrete() {
+    this.listaItens.push();
     this.hiddens = false;
-    console.log(this.texto)
+    console.log(this.texto);
   }
 
-  excluirLembrete(){
+  excluirLembrete() {
     this.listaItens.pop();
-    console.log("removido")
+    console.log('removido');
   }
 
-
-
-
-
-
-
-
-
-
-
-  @ViewChild("chart") chart: ChartComponent | any = null;
+  @ViewChild('chart') chart: ChartComponent | any = null;
   public chartOptions: Partial<ChartOptions> | any;
   public monthlyChart!: Partial<monthlyChart> | any;
 
-
-
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
-
 
   //get options from service
   private layoutChangesSubscription = Subscription.EMPTY;
@@ -114,41 +105,46 @@ texto = window.document.getElementById("#texto");
     return this.isMobileScreen;
   }
 
-  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
-
-
-
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public dialog: MatDialog
+  ) {
     this.chartOptions = {
       series: [25, 25, 25, 25],
       chart: {
         width: 380,
-        type: "donut"
+        type: 'donut',
       },
-      labels: ["EPG Raquel de quiroz", "EPG Álvaro Mesquita", "EPG Ofélia", "EPG Céu São Domingos"],
+      labels: [
+        'EPG Raquel de quiroz',
+        'EPG Álvaro Mesquita',
+        'EPG Ofélia',
+        'EPG Céu São Domingos',
+      ],
       responsive: [
         {
           breakpoint: 480,
           options: {
             chart: {
-              width: 300
+              width: 300,
             },
             legend: {
-              position: "bottom"
-            }
-          }
+              position: 'bottom',
+            },
+          },
         },
         {
           breakpoint: 350,
           options: {
             chart: {
-              width: 275
+              width: 275,
             },
             legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
+              position: 'bottom',
+            },
+          },
+        },
+      ],
     };
 
     this.monthlyChart = {
@@ -205,7 +201,10 @@ texto = window.document.getElementById("#texto");
       });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
+  edit=false;
 
   ngOnDestroy() {
     this.layoutChangesSubscription.unsubscribe();
@@ -222,4 +221,15 @@ texto = window.document.getElementById("#texto");
   onSidenavOpenedChange(isOpened: boolean) {
     this.isCollapsedWidthFixed = !this.isOver;
   }
+
+  isEdit(){
+    this.edit = !this.edit;
+
+  }
+
+  deleteItem(index:number){
+    this.listaItens.splice(index,1)
+  }
+
+
 }

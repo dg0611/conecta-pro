@@ -1,11 +1,11 @@
 <mat-dialog-content style="height: auto; width: 100%; text-align: center;">
 <mat-form-field class="example-full-width textArea" style="padding: 0;margin: 0;">
-  <mat-label style="padding: 0;margin: 0;" >Nota</mat-label>
-  <textarea matInput class="textArea" style="padding: 0;margin: 0;"></textarea>
+  <mat-label id="valor"  style="padding: 0;margin: 0;">Nota</mat-label>
+  <textarea #nota  matInput class="textArea" style="padding: 0;margin: 0;"></textarea>
 
 </mat-form-field>
 <div class="botao-center">
-  <button class="botao " mat-raised-button color="primary">Adicionar</button>
+  <button class="botao " mat-raised-button color="primary" (click)="onNoClick(nota.value)" >Adicionar</button>
 </div>
 
 </mat-dialog-content>
